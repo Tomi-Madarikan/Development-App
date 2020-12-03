@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+    *** README ***
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My Application's Architecture:
 
-## Available Scripts
+I edited five files:
+-App.js : contains the product list for the 12 products and 
+-FilteredList.js : contains all filtering, sorting and aggregator methods
+-DisplayList.js : maps each of the twelve products in the product list from App.js to a react-bootstrap-Card element. It also contains onclick logic for my aggregator buttons 'add to Cart' and 'remove from cart'
 
-In the project directory, you can run:
+-App.css : contains all of the styling information for App.js 
+-index.css : contains all of the styling information for FilteredList.js and DisplayList.js
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+How Data is Passed Down Through My Components: 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-I pass my aggregator functions(onAggregatorAdd and onAggregatorRemove) down from the FilteredList component to the DisplayList component
+-I pass my product list down from App.js to my FilteredList component
+-I create two instances of the DisplayList component in the render function of my FilteredList component. One of these instances of DisplayList models my product list and the other instance models my aggregator list (shopping cart)
 
-### `npm test`
+How user interactions can trigger changes in the state of components:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-Users can filter by size and colour, and they can sort price from highest to lowest and from lowest to highest. They are able to perform these actions by selecting the appropriate filters at the top of the screen. 
+On hover, each of these filter/sort options are highlighted so that the user knows that an action can be taken by clicking.
 
-### `npm run build`
+-Each cart contains an 'Add to Cart' button and a 'Remove from Cart' button. By clicking on these buttons, the total price of items in the shopping cart adjusts accordingly. The Shopping cart at the bottom of the page also adjusts in size and contents in accordance with the action(s) taken.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
